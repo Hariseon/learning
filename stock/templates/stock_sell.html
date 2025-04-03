@@ -4,16 +4,16 @@
         Акции {{ stock.name }} ({{ stock.ticker }}) <img src="{{ MEDIA_URL }}/{{ stock.logo }}" width="40" />
     </div>
     <div class="row">
-     <div class="col-md-6">
-         <h4>Купить</h4>
-         <form method="POST" action="{% url 'stock:buy' stock.pk %}">
+	  <div class="col-md-6">
+         <h4>Продать</h4>
+         <form method="POST" action="{% url 'stock:sell' stock.pk %}">
              {% csrf_token %}
-             {{ form }}
-             <button>Купить</button>
+             {{ sell_form }}
+             <button>Продать</button>
          </form>
      </div>
-     </div>
-	 <div>
+	</div>
+    <div>
         <a href="{% url 'stock:list' %}">Назад к списку</a>
     </div>
 {% endblock %}
